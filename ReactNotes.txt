@@ -1,0 +1,103 @@
+->React is a Javascript Library.
+
+->what is cdn?
+cdn=content delivery network
+what is crossorigin when we import cdn of react into our code
+
+->npm:-npm is managing the packages.
+npm is not stands for node package manager.
+npm is standard repository for all the packages.
+terminal ma npm init lakhva thi ek package.json name ni file banse 
+package.json file is configuration of our npm.
+aapde project gana badha packages par depend hoy so package.json ni andar ek dependency object hoy ke jema 
+e badha packages na version lakhya hoy
+
+->Bundler:-jyare aapda jode html,css ane js ni file hoy ane aapde evu wish karta hoie ke all code is bundle together,our whole code is minimized,our whole code is cached,our whole code need to be compressed,
+our whole code is to be clean to ena mate Bundler use thay
+webpack,parcel,vite aa badha budlers che
+aapde ahi parcel use karsu
+there are two types of packages/dependencies:-1>Dev dependency and 2>Normal dependency
+Dev dependency means it is used whenever we develop the app and Normal dependency means it is also used
+in production as well and develop the app as well.
+so dev dependency instal karva mate -D lakhvu pade like npm install -D parcel
+
+->package.json file ma dependency lakheli hoy like:-
+"dependencies": {
+    "parcel": "^2.10.3"
+  }
+  to aama ^(carrot) aano matlab evo thay ke jyare minor version change thay means version 2.10.3 mathi 2.10.5 thay tyare e automatic version ne upgrade kari dese ane ~(tilde) aano matlab evo thay ke e major version hase to pan upgrade kari dese means e 3.0.4 version thay jase to pan e tene upgrade kari dese
+
+  ->package-lock.json :-keep a track of exact version that is being installed of all the dependency
+
+  ->node_modules contains all the codes that we fetch from the npm.
+  aama kevu hoy ke node_modules ni size bau j moti hoy che karan ke aapde parcel ne install karyu pan sathe sathe amuk dependency pan install thase ke jena par parcel dependent hoy 
+  means jyare parcel install karsu tyare nodu_modules ma parcel nu ek folder banse jema eni potani package.json file hase ane ema dependencies ma lakhyu hase ke parcel kona kona par depend che em to e pan automatic install thase ane ena pan folder banse nodu_modules ma emni pan package.json file hase ema pacha dependencies ma je je package hase e pacha install thase emnu folder banse e rite chalya karse aane transitive dependency kahevay 
+  ane aa reason thi nodu_modules ni size bau moti hoy etla mate aapde tene production ma na muki sakie etle tene .gitignore file ma mukvanu means e git par upload nai thay
+
+->aapda jode package.json ane package-lock.json file hoy to aapde nodu_modules ne regenerate kari sakie chie using npm install aam terminal ma lakhva thi 
+
+->npm che te package/dependency ne install karva mate vapray jyare npx che teh package/dependency ne execute karva mate vapray
+
+->npx parcel index.html aam karva thi suh thase ke parcel che teh ek server create karse localhost:1234 ma 
+ane ema aa index.html run thava lagse ane npx parcel pachi index.html lakhie chie tya e file nu name lakhvanu jene aapde as a source file tarike manta hoy ane run karava magta hoie
+
+->parcel:-
+Dev Build,local server,HMR(Hot Module Replacement)HMR means jyare pan aapde koi change karie file ma ane tene save karsu ke tarat j teh browser ma reflect thai jase browser ne reload ke refresh nai karvu pade
+aa parcel na lidhe thay che,file watching algorithm(Written in C++),faster build beacuse of caching,
+image optimization,minification of files,bundling,compressing of all the files,consistency hashing,good error handling,support older browser ,Tree shaking(remove unused code)
+
+->aapde app ne production ma mukva mate npx parcel build index.html aavu alkhie to e error aapse karan ke
+aapde package.json ma as a entry point tarike app.js mukyu che ane ahi aapde index.html ne run karie chie etla mate e error aapse  to aapde entry point ne package.json mathi remove karvu padse etle have teh chalse
+
+->npx parcel index.html ke npx parcel build index.html aavu karvathi .parcel-cache ane dist name na folder banse tene pan aapde regenerate kari sakie chie so tene github par upload karvani jarur nai 
+aapde npx parcel index.html karvathi te banne folder ne regeneratekari sakisu etle te banne folder ne pan aapde .gitignore ma muki daisu
+
+->aapde package.json file ma scripts tag ma start ane buuild ni value aapi didha pachi aapde tene run karva mate terminal ma npm run start em lakhvanu etle 
+start ma je script che e run thava lagse
+
+->React Components:-1>Class Based Components and 2>Functional Based Components
+
+->props:-props is nothing but just passing a argument to a function.
+props che te ek javascript object j che niche ek example batayu che ema aapde props ne console.log karavsu tyare tema object j aavse
+output aavse console.log nu:-{resname:"Meghna Food",cuisine:"Biryani,North Indian,Asian"}
+etle have RestCard ma object ni property access karva mate aapde props.resname ane props.cuisine aam kari saksu ane destructuring pan kari saksu object ne
+const RestCard=(props)=>{
+  console.log(props);
+  return (
+     <div></div>
+  )
+}
+ <RestCard resname="Meghna Food" cuisine="Biryani,North Indian,Asian"></RestCard>
+
+->Read about config driven UI 
+
+ ->Optional chaining in javascript:-
+ const obj={
+  name:"tej",
+  rollno:114,
+  address:{
+    name:"society",
+    state:"gujarat"
+  }
+ }
+ console.log(obj.name); // output:-tej
+ console.log(obj.abc);//output:-undefined means ek depth sudhi wromg hase to e undefined aapse pan pachi e error aapse
+ console.log(obj.address.tej);output:-undefined karan ke aama ek j depth sudhi wrong che means address sudhi to sachu j che
+ console.log(obj.abc.pqr);//output:- it will give an error
+ pan e error na aape just undefined ke null batai de ena mate optional chaining(?) use karvu pade
+ console.log(obj.abc?.pqr);//output:-undefined karan ke aapde optional chaining muki didhu matlab jo abc exist karto hase toj e aagd pqr jose baki e undefined
+ aapi dese
+ means e check karse ke abc exist kare che ke nahi em ane e undefined ke null to nathi ne to j e pqr par jase baki e undefined aapi dese
+
+ ->{resobjdata.map((item) => {
+         return <RestCard resdata={item}/>
+    })} aa rite lakhie map ma ane arrow function ma {} aavu use karyu hoy to always farjiyat return em lakhvu j padse baki e render nai thay
+    pan arrow function ma () aam lakhyu hase {} aani jagya e to e return statement vagar e chalse 
+
+->map use karta hoie tyare always habit rakhvani ke aapde je component use karie chie tema aapde key provide karie em
+map ma key add karvanu main reason react ma e che ke jo aapde key add na karie ane koi navi iyem ke component add thay tyare te badha component ne re-render
+karse karan ke ene khabr nathi ke aa navo component kya add karvano che em pan jo ena badle aapde key use karsu to ene khabar padi jase ke aa to juni key
+che ane aa navi key add thayi etle te khali navi key vada component ne j re-render karse
+ane map ma key tarike always unique value j use karvanu ane jo unique value koi na made to index as a key tarike use karvanu pan index as a key tarike use karvu 
+sari vat nai evu react ke che etle ene last option tarike rakhvanu kai unique key na made to j ene index ne key tarike rakhvanu 
+        

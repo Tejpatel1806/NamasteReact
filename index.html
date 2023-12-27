@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Sample Html Page</title>
+</head>
+
+<body>
+    <!-- jyare index.html code execute thavano start thase tyare first te Hello above the Root line execute karse ane
+    display karse browser ma pachi te div ke jenu id root che tema jase ane ema je h1 che te execute karse ane display
+    karse browser ma have e script tag vadi line par jase etle te React ne import karse aa index.html ma cdn mathi
+    have e 3rd script tag par jase etle te jose ke app.js ne import karvanu che etle have te app.js ne line
+    by line execute karvanu start kari dese ane jevu ema aavse ke root.render etle te main html ma div ke
+    jenu id root che ema je content che tene override kari dese ane e div na uper ane niche no content same rehse
+    e override nai thay karan ke aapde khali root ma j render karavie chie
+    in short Hello above the Root same rehse pan Hello Teh is HeRE e che te override thay jase app.js na
+    root.render thi  -->
+    <!-- <h1>Hello above the Root</h1> -->
+    <div id="root">
+
+        <!-- <h1>Hello Tej is HeRE</h1> -->
+        <!-- 1>first way aa rite pan hello world ne html page ma batai sakay -->
+        <!-- <h1>Hello World</h1> -->
+    </div>
+    <!-- 2>second way using javascript aa rite pan hello world ne html page ma batai sakay -->
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World from Javascript";
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+    </script> -->
+
+
+    <!-- aa che te using cdn aapde react ne aapda project ma use karva mate import karvu pade -->
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <!-- npm install react ane npm install react-dom karya pachi have aapde cdn ma thi react no use nahi karie have
+    aapde nodu_modules ma thi react ane react-dom na packages no use karsu ena mate aapde app.js ma react ane
+    react-dom ne nodu_modules ma thi import karva padse
+    ane niche jya app.js ne import karie chie tya script tag ma type="module" add karvu padse karan ke have 
+    app.js koi normal javascript file nathi kem ke normal javascript file ma import-export na aave  -->
+
+
+    <!-- 3>Third way using react a rite pan aapde Hello world from react aa text ne browser ma display karai saksu ena mate uper vadi 2 script tag ne cdn ma thi lavvu padse-->
+    <!-- <script>
+        // React.createElement aano matlab aapde ek element create karie chie jenu tag h1 che ema kai props nathi ane third argument che te content che e tag no
+        //aama second argument che te jyare e tag jode aapde koi attribute ne pass karva hoy tyare use thay like <h1 id="hello>" aam karvu hoy to as a second argument aapde {id:"hello"} aam aapvu pade
+        const heading = React.createElement("h1", {}, "Hello World From React!");
+
+        //aama aapde jyare root element create karta hoie tyare ReactDOM vaprvu pade kem ke e root aapde browser ma render karavanu che etle DOM jode connected che have e root create karya pachi ene using render method aapde render karai saksu element ne 
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(heading);
+
+    </script> -->
+    <script type="module" src="./foodapp.js"></script>
+</body>
+
+</html>
