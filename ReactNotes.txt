@@ -100,4 +100,27 @@ karse karan ke ene khabr nathi ke aa navo component kya add karvano che em pan j
 che ane aa navi key add thayi etle te khali navi key vada component ne j re-render karse
 ane map ma key tarike always unique value j use karvanu ane jo unique value koi na made to index as a key tarike use karvanu pan index as a key tarike use karvu 
 sari vat nai evu react ke che etle ene last option tarike rakhvanu kai unique key na made to j ene index ne key tarike rakhvanu 
+
+->Never put the hardcoded data in your component file.put it into config.js /constant.js/utils.js and that data is global that can be accessed by all the files.
+
+->in one file only one default export is there a module can not have multiple default export
+there are two types of import-export:- 1>Named export and 2>Default export
+if our wish is to export multiple item then we used the named export concept.
+we use the both the export named and default in one file.
+
+->Hook:-
+Hook is a normal javascript function that given to us by React.
+Hooks are:-useState(),useEffect()
+whenever the state variable is update react is re-render the entire component.
+when we work with normal variable like let,var and const then it is not possible to re-render the component if the variable value is changed.
+
+
+->React is work on reconciliation algorithm(also known as React fiber).
+Virtual DOM:-it is a javascript representation of actual DOM 
+Actual DOM means ema badha html tag hoy jyare virtual dom means ema javascript object hoy ane ema 2 virtual dom hoy ek previous virtual dom ane biju current virtual
+dom have aapde jyare change karsu usestate ma means state change karsu etle e previous virtual dom ane currrent virtual dom banne ne compare karse ane pachi ema 
+je change hoy te change actual dom ma karse
+karan ke actual dom ma html tag hoy ane virtual dom ma javascript object ke je react.createelement thi bane che te etle comparing two html code karta comparing
+two javascript object is very fast.this is concept of virtual dom.
+
         

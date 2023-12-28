@@ -43,3 +43,12 @@
     height:42%;
     width: 100%;
 }
+.toprated-btn
+{
+    margin:10px 10px;
+    width:175px;
+    height: 45px;
+    background-color:beige;
+    border-radius: 5px;
+    cursor: pointer;
+}
