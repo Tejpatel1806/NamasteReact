@@ -123,4 +123,36 @@ je change hoy te change actual dom ma karse
 karan ke actual dom ma html tag hoy ane virtual dom ma javascript object ke je react.createelement thi bane che te etle comparing two html code karta comparing
 two javascript object is very fast.this is concept of virtual dom.
 
+->Monolith architecture:-ema evu hoy ke ek j project ma badhu hoy like API no code,UI no code,Authentication no code,Database connectivity no code ane sms notification no code 
+to ema evu hoy ke badhu same ek j project ma lakhelu hoy so ek ma pan nano evo change karsu to pan aapde aakhi application ne build kari ne run karvi padse to ema time vadhare jato rehse so e saru na kahevay
+->Microservice architecture:-we have diffrent services for different jobs.means database connectivity,
+UI ,authentication badha mate alag alag service hoy ane badha bhega madi ek aakhi application banave
+darek service potana own specefic port par run thata hase ane have badha port ekbija jode communicate karse using url like UI ne display karavu che to / URL e rite
+
+->There are two ways to UI is fetch the data from backend:-
+1>jyare page load thay tyare aapde API call karie ane wait karie data aavvano ane jevo data aavi jay ke tarat j aapde tene render karai daie
+2>ema evu hoy ke jevu page load thay tyare j aapde kaik render karavie pachi API call karie ane pachi wait karie data aavvano ane jevo data aavi jay ke tarat j aapde page ne fari re-render karavie
+mostly aapde react ma second approach j use karsu
+
+->useEfeect as a argument tarike arrow function(callback function) ane dependency array lese
+useEffect(()=>{
+    console.log("useEffect is called");
+  },[]);
+  uper nu statement aapde body component ma lakhyu che to useEffect kyare call thase to answer is jyare aakhu body component render thai jase pachi useEffect ma je callback function lakhyu che te execute thase
+
+  ->cors chrome extension aapde etla mate use karie chie ke aapde ek api ne localhost ma thi bija koi origin par call karie to aapdu browser te allowed nai kare ena mate tene allowed karva mate aapde cors chrome extension use karie chie
+  means externa api ma thi data lavva mate aapde cors extension use karie chie
+
+  ->Page load thay tyare aapde data fetch karie chie using useEffect pan data ne aavta assume karo ke 3sec no 
+  time lage che to aapde page uper 3sec sudhi kaik spinner ke page is loading evu batavu padse pan in 
+  traditional way badha shimmer no use kare che like swigy ane youtube ma shimmer no use thay che ema evu hoy ke 
+  aapde je data aavano hoy eva j card batavie pan e blank hoy ane load thata hoy evu lage 
+
+  ->useState variable ni value jevi change thay ke tarat j aakho component re-render thay pan UI ma change only
+  e jagya ej thay je jagya change thai hoy aam thavanu karan virtual DOM karan ke ema previous virtual dom ane current
+  virtual dom hase have banne compare thase ane ema je changes hase ej actual dom ma karse etle je jagya change thai che ej khali badlase pan state change karvathi component to aakho j fari re-render thase
+
+  ->
+
+
         
