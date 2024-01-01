@@ -1,24 +1,31 @@
 import RestCard from "./RestCard";
 // import resobjdata from "../utils/mockdata";
+//uper ni line ne comment karvan
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [resobjdatanew, setResobjdatanew] = useState([]);
-  const[filterrestaurants,setFilterrestaurants]=useState([]);
-  const [searchtext,setSearchtext]=useState("");
+  const [filterrestaurants, setFilterrestaurants] = useState([]);
+  const [searchtext, setSearchtext] = useState("");
   useEffect(() => {
-    setTimeout(() => {
-      fetchData();
-    }, 3000);
+    fetchData();
   }, []);
   const fetchData = async () => {
-    const data = await fetch(
-      "https://mocki.io/v1/6d35a163-9d16-43a5-b3e2-f99da4553d1c"
+    const data1 = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    const jsondata = await data.json();
-    // console.log(jsondata);
-    setResobjdatanew(jsondata?.data);
-    setFilterrestaurants(jsondata?.data);
+
+    const jsondata1 = await data1.json();
+    // console.log(jsondata1);
+    // console.log(jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+
+    setResobjdatanew(
+      jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
+    setFilterrestaurants(
+      jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
   };
 
   //conditional rendering
@@ -29,21 +36,33 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <center>
-        <div className="search">
-          <input type="text" className="search-box" placeholder="Search" value={searchtext} onChange={(e)=>{
-            setSearchtext(e.target.value);
-          }}></input>
-          <button onClick={()=>{
-            const filterrestaurant=resobjdatanew.filter((item)=>{
-              console.log(item.info.name);
-              return item.info.name.toLowerCase().includes(searchtext.toLowerCase());
-            })
-            setFilterrestaurants(filterrestaurant);
-            console.log(resobjdatanew);
-          }}>Search</button>
-        </div>
+          <div className="search">
+            <input
+              type="text"
+              className="search-box"
+              placeholder="Search"
+              value={searchtext}
+              onChange={(e) => {
+                setSearchtext(e.target.value);
+              }}
+            ></input>
+            <button
+              onClick={() => {
+                const filterrestaurant = resobjdatanew.filter((item) => {
+                  console.log(item.info.name);
+                  return item.info.name
+                    .toLowerCase()
+                    .includes(searchtext.toLowerCase());
+                });
+                setFilterrestaurants(filterrestaurant);
+                console.log(resobjdatanew);
+              }}
+            >
+              Search
+            </button>
+          </div>
         </center>
-        
+
         <center>
           <button
             className="toprated-btn"
@@ -66,7 +85,11 @@ const Body = () => {
         {/* <RestCard resname="KFC" cuisine="Burger,Fast Food"></RestCard> */}
 
         {filterrestaurants.map((item, index) => {
-          return <RestCard key={index} resdata={item} />;
+          return (
+            <Link to={"/restaurants/" + item.info.id}>
+              <RestCard key={index} resdata={item} />
+            </Link>
+          );
         })}
       </div>
     </div>

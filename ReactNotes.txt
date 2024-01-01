@@ -152,7 +152,32 @@ useEffect(()=>{
   e jagya ej thay je jagya change thai hoy aam thavanu karan virtual DOM karan ke ema previous virtual dom ane current
   virtual dom hase have banne compare thase ane ema je changes hase ej actual dom ma karse etle je jagya change thai che ej khali badlase pan state change karvathi component to aakho j fari re-render thase
 
-  ->
+  ->useState variable ne if else ni andar ,for loop ni andar,function ni andar use nai kari sakay tene top level ej use kari sakay baki e incocnsistency result aapse
 
+  ->About useEffect:-
+  useEffect(()=>{
+    console.log("useEffect is called");
+  }) jo dependency array aapde na aapie to useEffect jyare component re-render thay pachi call thay 
+  first time component re-render thai gayu etle pachi useEffect call thase have jyare component ma koi useState variable ni value change thase ke tarat j component fari re-render thase ane jyare component fari re-render thai jase pachi pan useEffect call thase karan ke aapde dependency array mukyo j nathi
+  means initial time to thase j ane pachi jetli var usestatevariable change thava thi component re-render thase e badhi var component re-render thai jay pachi useEffect pan call thase
 
+  useEffect(()=>{
+    console.log("UseEffect is called");
+  },[])  jo aapde dependency array mukie pan te empty hoy to aava case ma jyare component first time render thase tyare component render thai gaya pachi useEffect call thase pan have jyare component ma koi useStatevariable ni value change thase ane component fari re-render thase tyare useEffect call nai thay 
+  means empty array na case ma e only one time j call thase first initial rendering pachi have koi state ni value change thay to component re-render thase pan useEffect call nai thay
+
+  useEffect(()=>{
+    console.log("useEffect is called");
+  },[datanew]); jo aama dependency array ma aapde koi value muki che to aama kevu thase ke first time initial render jyare thase component nu tena pachi useEffect call thase ane have jyare component ma datanew ni value change thase ane component fari re-render thase to component re-render thai jay pachi pan useEffect call thase 
+  means aama useEffect first initial render par call thase ane pachi jyare datanew ni value change thase ke tarat j te useEffect call thase component re-render thai jay pachi
+
+  -><input type="text" value={hello}/> ane aama hello che te ek useState variable che to e have input tag ma kai write nai karva de karan ke e useState jode bndhai gayu che ane eni value empty che hal to ema kai write karva mate tema onChange lakhvu j padse
+
+->react-router-dom ne install karva mate npm install react-router-dom terminal ma lakhvanu
+React Routing:-1>Server side Routing:-we make a network call and page is coming from server and display on UI 2>Client side Routing:-ema kevu hoy ke first time fetch karie tyare j badho data aavi jay pachi aapde jem URL badalie tem te khali component change thay 
+React Router mate foodapp.js file ma jovu ema badhu explain karelu che
         
+->React che te single page library che to ema aapde jyare <a href=""> no use karie tyare tema page fari re-load thay jyare tene atkavva mate aapde teni jagya e <Link to=""> no use karsu
+ane Link ne import karvanu react-router-dom ma thi  <Link to=""> no use karva thi page fari re-load nai thay only component badlase
+
+->Url ma thi koi value leva mate aapde useParams no use karsu ane e useParams na use mate RestaurantMenu.js ne dhyan ma le teno use karelo che ema to joi levo ema 
