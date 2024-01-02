@@ -181,3 +181,52 @@ React Router mate foodapp.js file ma jovu ema badhu explain karelu che
 ane Link ne import karvanu react-router-dom ma thi  <Link to=""> no use karva thi page fari re-load nai thay only component badlase
 
 ->Url ma thi koi value leva mate aapde useParams no use karsu ane e useParams na use mate RestaurantMenu.js ne dhyan ma le teno use karelo che ema to joi levo ema 
+
+->React class based component is at the end of the day is javascript classes
+tene use karvanu syntax ne e badhu Userclass.js ma che joi levu
+IMP question:-class based component ma aapde constructor banavie props pass karva mate tyare aapde super(props) kem lakhie chie reason ane jyare props ni value laie tyare this.props em lakhie chie ema this kem lakhie chie
+->Loading a class based component means we create a instance of the class ane jyare instance bane class no etle constructor call thay etla mate j constructor che te best place che for receiving a props and for creating a state varible in class based component.
+->About page jyare render thavanu start thase tyare te about page na JSX ne run karse ane jevu about page na JSX ma classbase component Userclass aavse ke tarat j te userClass ne load karse ane loading a class means created a instance of a class,ane jevo instance create thase ke tarat j constructor call thase ane constructor pachi render method call thase etle have render method ma je che e display thase page par
+
+pan assume karo ke about.js pan ek classbased component che to ema about nu constructorfirst call thase pachi about na render ma jase etle about nu render call thase ane have about na render ma aapde Userclass ne call karavyu che etle have Userclass nu constructor call thase ane pachi Userclass nu render call thase
+->ComponentDidMount kari ne pan ek method aave che class based components ma je constructor call thai jay pachi render call thai jay pachi last ma call thay matlab jo About ane Userclass banne jo class based component hase to first parent constructor called,parent render called,child constructor called,child render called,child componentdidmount called,parent componentdidmount called
+aam thavanu karan ke parent na render ma thi j aapde Userclass ne load karavyu che matlab have e userclass nu constructor ,render ane ComponentDidMount call kare pachi j e parent nu ComponentDidMount call karse
+->ComponentDidMount method no use thay API ne call karva mate karan ke aapde functional base component ma pan api call useEffect ma karta hata ane useEffect pan
+last ma j call thatu hatu means component render thai jay pachi j useEffect call thatu hatu etla mate aama pan ComponentDidMount last ma call thay che render pachi etle api ne team call karvu best rehse
+
+->IMP NOTES:- assume karo ke about ek class based component che ane ema 2 child che userclass1 ane userclass2 je pan class based component che to first about nu constructor call thay pachi about nu render pachi userclass1 nu constructor ,pachi userclass1 nu render pachi userclass2 nu constructor pachi userclass2 nu render pachi userclass1 nu ComponentDidMount pachi userclass2 nu ComponentDidMount ane last ma about nu ComponentDidMount 
+aam thavanu karan ke react che te performance increase karvani try karse means te child na badha component na render phase(constructor+render) pela karse pachi badha child component na commit phase(ComponentDidMount) karse
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ ->aa link par thi joi levu react lifecycle diagram ema mast aapelu che e samji levu
+
+->Class based component ma jevi state ni value change thay ke tarat j component render method fari execute thay constructor na thay only render method thay
+
+->IMP NOTES:- class based component ma first constructor call thay pachi render method call thay pachi ComponentDidMount call thay ane assume karo ke aapde ComponentDidMount ma API call karie chie ane data fetch karie chie ane have e data ne state varible ma update karavie chie to jevo te state variable chage thase ke tarat j render method fari call thase ane have render pati gaya pachi ComponentDidMount call nahi thay componentDidUpdate call thase
+ane jyare aakhu te component HTML ma thi nikdi jay tyare componentWillUnmount call thase means aapde aboutus page par chie ane jyare contactus page par jaisu tyare aboutus na page nu componentWillUnmount call thase
+
+->React is a single page application ema ek j page hoy khali component badlaya kare 
+->componentWillUnmount method ma aapde evu logic lakhsu je aapde component HTML ma thi leave thay tyare karva magta hoie like aapde ComponentDidMount ma setInterval nu kaik lakhyu pan have jyare te page leave thay tyare aapde tene stop karavu che to aapde te componentWillUnmount ma lakhsu jo ema nai lakhie to te page badlase pan setInterval tenu kam kartu j rehse
+
+->Profile.js
+
+aama em kehva mage che ke aapde profile.js ma useEffect ma setInterval lagavyu che to ema darek minute timer is called print thay che pan have aapde uper navbar ma Profile page ma thi aboutus page ma jasu to pan timer to chalu j rehse to e timer ne bandh karva mate aapde cleanup function use karvu pade
+useEffect che te ek function return kare che e function jyare component HTML ma thi jay means jyare aapde aboutus par click karie ane profile nu page display mathi jatu re tyare call thay e to ema aapde clearInterval kari daie etle have te bija page par jase tyare stop thai jase
+
+const Profile=()=>{
+
+useEffect(()=>{
+   
+const timer=setInterval(()=>{
+  console.log("timer is called");
+},1000);
+
+return ()=>{
+  clearInterval(timer);
+}
+
+},[])
+
+  return(<>
+  
+  </>);
+}
