@@ -253,3 +253,7 @@ const Grocery=lazy(()=>import("grocery file no path"));
 
 have jyare aapdi app load thase tyare dist ma ek j js file bani hase ane jevu aapde grocery par click karsu ke tart j biji js file banse je grocery.js hase dist ma ema khali grocery no j combination,compress code hase have jyare grocery par click karyu tyare e file load thase to ene aavta 15 ms lage che to e time ma react e grocery page ne sodhvani try karse ane e nai made etle te error aapse to ene resolve karva mate Grocery componnent ne aapde <suspence> ma wrap kari daisu ane fallback ma aapde e time jya sudhi ma grocery ni js file aave tya sudhi je batava magta hoie te component lakhvanu
 <suspense fallback={<Loading />}><Grocery/></suspence>
+
+->sass ane scss che te css na type che aapde aa 2 rite pan css lakhi sakie chie ema kevu hoy ke te amuk extra functionality pan provide kare em css ma
+styled component pan use thay aapda component ne css karva mate
+material ui,chakra ui ,bootstrap ,ant design aa badhi popular framework che component ne design karva mate na

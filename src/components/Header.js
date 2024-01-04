@@ -7,15 +7,15 @@ const Header = () => {
   const[buttonname,setButtonname]=useState("Login");
   const status=useOnlinestatus();
     return (
-      <div className="header">
+      <div className="flex justify-between">
         <div className="logo-container">
           <img
-            className="logo"
+            className="w-[70px]"
             src={LOGO_URL}
           ></img>
         </div>
         <div className="nav-items">
-          <ul>
+          <ul className="flex p-4 m-4">
             <li>Online Status:- {status==="true" ? "🟢": "🔴"}</li>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About us</Link></li>

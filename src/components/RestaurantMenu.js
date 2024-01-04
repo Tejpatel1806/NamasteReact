@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+
 const RestaurantMenu=()=>{
     const [resMenu,setResMenu]=useState(null);
     const {resId}=useParams();
@@ -34,6 +35,7 @@ const RestaurantMenu=()=>{
                {itemCards.map((item)=>(
                 <li>
                     {item.card.info.name} -{item.card.info.price/100 || item.card.info.defaultPrice/100}
+                    {/* <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/"+item.card.info.imageId} style={{height:"30px",width:"30px"}}/> */}
                 </li>
                ))}
             </ul>
