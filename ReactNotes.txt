@@ -230,3 +230,14 @@ return ()=>{
   
   </>);
 }
+
+->Single responsibility principle:- single responsibility principle means jyare aapda jode koi function hoy class hoy ke jeni ek j responsibility hoy like data display karavano ke evi koi bas etlu j jem ke RestaurantMenu.js ni responsibility khali etli j che ke e data ne display karse particular restaurant na 
+modularity means we break down the codes in different different modules.
+single responsibility principle ane modularity no use karva thi aapdo code more resusable ,more maintainable,and more testable banse
+creating a custom hook is not a mandatory thing but after using the custom hook our code is more readble,more maintanable and more testable.
+have aapda project ma RestaurantMenu.js kari ne ek file che enu kam khali particular restaurant no data display karavanu che pachi aapde e data kya thi lavie chie kai rite fetch karie chie ena thi ene koi matlab nathi to aapde ek custom hook banavie ke je aapnne data lai aape to RestaurantMenu nu kam khali te data ne display karavanu j reh to ena mate aapde customhook banavsu jenu name useRestaurantMenu aapsu ane tene util ni andar muksu ane e aapnne data lai aapse 
+to RestaurantMenu khali te data ne display j karse
+
+->have evo koi hardcoded rule nathi ke aapde customhook nu name use thi j start thay pan aapde generally evu karie chie ke je hook hoy enu name use thi start thay etla mate aapde customhook nu name use thi start karie chie ane component nu name ma first letter capital rakhie chie
+
+->IMP NOTES:-have aama evu che ke jyare aapde custom hook banavyu ane ema aapde useEffect lakhi che have koi component ma thi te customhook ne call kare che to te useEffect che te aakho component jema thi call karyu che te render thai jay pachi useEffect chalse 

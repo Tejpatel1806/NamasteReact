@@ -4,12 +4,14 @@ import RestCard from "./RestCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlinestatus from "../utils/useOnlinestatus";
 const Body = () => {
   const [resobjdatanew, setResobjdatanew] = useState([]);
   const [filterrestaurants, setFilterrestaurants] = useState([]);
   const [searchtext, setSearchtext] = useState("");
   useEffect(() => {
     fetchData();
+    
   }, []);
   const fetchData = async () => {
     const data1 = await fetch(
@@ -27,6 +29,12 @@ const Body = () => {
       jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
+  const status=useOnlinestatus();
+  if(status==="false")
+  {
+    return (<h1>OOPS!Your internet connection is offline please try again</h1>);
+  }
+  // console.log("body is called");
 
   //conditional rendering
   if (resobjdatanew.length === 0) {

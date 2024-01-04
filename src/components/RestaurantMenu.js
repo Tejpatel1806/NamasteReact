@@ -13,6 +13,9 @@ const RestaurantMenu=()=>{
         console.log(jsondata);
         setResMenu(jsondata);
     }
+
+     //ahi aapde useRestaurantMenu ma thi data lavsu 
+     //const resInfo=useRestaurantMenu(resId);
     if(resMenu === null)
     {
         return <Shimmer></Shimmer>
