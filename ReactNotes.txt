@@ -241,3 +241,15 @@ to RestaurantMenu khali te data ne display j karse
 ->have evo koi hardcoded rule nathi ke aapde customhook nu name use thi j start thay pan aapde generally evu karie chie ke je hook hoy enu name use thi start thay etla mate aapde customhook nu name use thi start karie chie ane component nu name ma first letter capital rakhie chie
 
 ->IMP NOTES:-have aama evu che ke jyare aapde custom hook banavyu ane ema aapde useEffect lakhi che have koi component ma thi te customhook ne call kare che to te useEffect che te aakho component jema thi call karyu che te render thai jay pachi useEffect chalse 
+
+->have aapde jyare npx parcel index.html lakhie tyare .parcel-cache ane dist name na 2 folder bane che ane ema dist folder ma joyu hoy to ek j js file hoy che je badhi aakha project ni js file nu combination hoy che jene parcel compress kari ek j file ma convert kari de che have e rite jo aapda project ma 1000 js file hoy ane badha ni combine kari aa rite 1 j file bane to e ek file ni size bau vadhi jay etle performance bau saru na kehvay to ena mate apde amuk chunk ma divide karie like 300js file nu combination kari compress kari 1 js file bane e rite bija 300 js file nu combination kari compress kari 2ji js file bane e rite to aa process ne chunking,code splitting,Dynamic bundling,lazy loading,ondemand loading kahevay
+
+->have assume karo ke aapde je app banavi che tema uper navbar ma online status ni baju ma ek grocery link che ena par click karie to grocery page khule ane ema gani badhi js file che to have aapde evu karva magie chie ke aapdi je app che without grocery eni ek js file bane ane grocery ni ek alag js file bane jyare aapde parcel bundle karie tyare to aapde app ma jyare grocery ne import karsu tyare thodi alag rite karsu je niche mujab che
+
+lazy che te ek function che je react provide kare che ane ema import ma aapde file no path aapsu
+import {lazy,suspence} from "react";
+const Grocery=lazy(()=>import("grocery file no path"));
+<suspense fallback={<Loading />}><Grocery/></suspence>
+
+have jyare aapdi app load thase tyare dist ma ek j js file bani hase ane jevu aapde grocery par click karsu ke tart j biji js file banse je grocery.js hase dist ma ema khali grocery no j combination,compress code hase have jyare grocery par click karyu tyare e file load thase to ene aavta 15 ms lage che to e time ma react e grocery page ne sodhvani try karse ane e nai made etle te error aapse to ene resolve karva mate Grocery componnent ne aapde <suspence> ma wrap kari daisu ane fallback ma aapde e time jya sudhi ma grocery ni js file aave tya sudhi je batava magta hoie te component lakhvanu
+<suspense fallback={<Loading />}><Grocery/></suspence>
