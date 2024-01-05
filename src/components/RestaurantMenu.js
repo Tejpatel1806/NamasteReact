@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
         "&catalog_qa=undefined&submitAction=ENTER"
     );
     const jsondata = await data.json();
-    console.log(jsondata);
+    // console.log(jsondata);
     setResMenu(jsondata);
   };
 
@@ -35,7 +35,11 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resMenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
-  console.log(itemCards);
+  // console.log( resMenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  const categories= resMenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item)=>
+    item?.card?.card?.["@type"]=== "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  console.log(categories);
   return (
     <>
       <div className=" ml-16 mt-8 w-[70%]  border border-black">
