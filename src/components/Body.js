@@ -19,14 +19,14 @@ const Body = () => {
     );
 
     const jsondata1 = await data1.json();
-    // console.log(jsondata1);
-    // console.log(jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    console.log(jsondata1);
+    console.log(jsondata1.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
 
     setResobjdatanew(
-      jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      jsondata1.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     );
     setFilterrestaurants(
-      jsondata1.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      jsondata1.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     );
   };
   const status=useOnlinestatus();
@@ -42,19 +42,19 @@ const Body = () => {
   }
   return (
     <div className="body">
-      <div className="filter">
-        <center>
-          <div className="search">
+      <div className="filter flex  ">
+        
+          <div className="search m-4 p-4 ml-[585px]">
             <input
               type="text"
-              className="search-box"
+              className="border border-solid border-black py-2"
               placeholder="Search"
               value={searchtext}
               onChange={(e) => {
                 setSearchtext(e.target.value);
               }}
             ></input>
-            <button
+            <button className="m-6 py-2 bg-green-100 w-[86px] rounded-lg" 
               onClick={() => {
                 const filterrestaurant = resobjdatanew.filter((item) => {
                   console.log(item.info.name);
@@ -69,11 +69,11 @@ const Body = () => {
               Search
             </button>
           </div>
-        </center>
+      
 
-        <center>
-          <button
-            className="toprated-btn"
+        <div className="m-4 p-4 px-120 flex items-center float-right rounded-lg">
+        <button
+            className="m-6 py-2 bg-green-100 w-[86px"
             onClick={() => {
               setFilterrestaurants(
                 resobjdatanew.filter((res) => {
@@ -84,9 +84,11 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
-        </center>
+        </div>
+        
+     
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {/* <RestCard resdata={resobjdata[0]}></RestCard>
         <RestCard resdata={resobjdata[1]}></RestCard>
         <RestCard resdata={resobjdata[2]}></RestCard> */}

@@ -4,11 +4,15 @@ const Shimmer=()=>{
     return(
         
         <>
-        <div className="shimmer-container">
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
+        <div className="flex flex-wrap">
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
+            <div className=" w-[250px] h-[500px] ml-[100px] mr-[100px] mt-[50px] mb-[50px] rounded-xl " style={{ backgroundColor: "#f0f0f0" }}></div>
         </div>
         </>
     );

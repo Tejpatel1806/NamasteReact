@@ -7,20 +7,20 @@ const Header = () => {
   const[buttonname,setButtonname]=useState("Login");
   const status=useOnlinestatus();
     return (
-      <div className="flex justify-between">
+      <div className="flex justify-between bg-pink-100 shadow-lg">
         <div className="logo-container">
           <img
             className="w-[70px]"
             src={LOGO_URL}
           ></img>
         </div>
-        <div className="nav-items">
+        <div className="flex items-center">
           <ul className="flex p-4 m-4">
-            <li>Online Status:- {status==="true" ? "🟢": "🔴"}</li>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About us</Link></li>
-            <li><Link to="/contactus">Contact Us</Link></li>
-            <li>Cart</li>
+            <li className="px-4">Online Status:- {status==="true" ? "🟢": "🔴"}</li>
+            <li className="px-4"><Link to="/">Home</Link></li>
+            <li className="px-4"><Link to="/about">About us</Link></li>
+            <li className="px-4"><Link to="/contactus">Contact Us</Link></li>
+            <li className="px-4">Cart</li>
             <button style={{padding:"0px 22px",cursor:"pointer","margin-right":"15px"}} onClick={()=>{
               if(buttonname==="Logout"){setButtonname("Login");}
              else{ setButtonname("Logout");}
