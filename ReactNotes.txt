@@ -269,3 +269,5 @@ Higher order component aapde tyare j use karie jyare aapda jode ek component che
 React application na 2 layer hoy :-1>data layer ane 2>UI layer
 data layer ma state,props ,local variable aavo badho data hoy jyare UI layer ma JSX no code hoy
 UI layer is powered by data layer.
+
+->In React, Controlled components refer to the components where the state and behaviors are controlled by Parent components while Uncontrolled components are the ones having control of their own state and manage the behaviors on themselves
