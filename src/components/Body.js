@@ -1,16 +1,18 @@
 import RestCard, { Withopencloselabel } from "./RestCard";
 // import resobjdata from "../utils/mockdata";
 //uper ni line ne comment karvan
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlinestatus from "../utils/useOnlinestatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [resobjdatanew, setResobjdatanew] = useState([]);
   const [filterrestaurants, setFilterrestaurants] = useState([]);
   const [searchtext, setSearchtext] = useState("");
-
-  //ahi aapde higher order component ne ek component ma store karai didhu jenu name OpenClosecomponent che 
+  const {loggedInuser,setUsername}=useContext(UserContext);
+  
+    //ahi aapde higher order component ne ek component ma store karai didhu jenu name OpenClosecomponent che
   const OpenClosecomponent = Withopencloselabel(RestCard);
   useEffect(() => {
     fetchData();
@@ -88,6 +90,10 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+        <div className="m-4 p-4 px-120 flex items-center  rounded-lg">
+          <label>UserName:- </label>
+          <input className="border border-black" value={loggedInuser} onChange={(e)=>setUsername(e.target.value)} ></input>
+        </div>
       </div>
       <div className="res-container flex flex-wrap">
         {/* <RestCard resdata={resobjdata[0]}></RestCard>
@@ -95,7 +101,7 @@ const Body = () => {
         <RestCard resdata={resobjdata[2]}></RestCard> */}
         {/* <RestCard resname="KFC" cuisine="Burger,Fast Food"></RestCard> */}
 
-{/* have aapde ahi check karie chie ke item.info.isOpen jo true che to aapde higher order component batavie chie baki aapde normal component j batavie chie jo e false hoy to */}
+        {/* have aapde ahi check karie chie ke item.info.isOpen jo true che to aapde higher order component batavie chie baki aapde normal component j batavie chie jo e false hoy to */}
         {filterrestaurants.map((item, index) => {
           return (
             <Link to={"/restaurants/" + item.info.id}>

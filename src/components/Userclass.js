@@ -1,5 +1,5 @@
 import React from "react";
-
+import UserContext from "../utils/UserContext";
 //this is way to define a class based component in react.
 //React.component is a class that provided by react and Userclass is uses some property of the React.component class so we extend that class.
 class Userclass extends React.Component {
@@ -55,6 +55,11 @@ class Userclass extends React.Component {
         }}>Increase count in class</button> */}
         <h2>Name is:- {this.state.userInfo.name}</h2>
         <h2>Company is:- {this.state.userInfo.location}</h2>
+
+        {/* //aa rite context no data aapde class based component ma use kari sakie chie UserContext ne aapde uper import karyu che have .consumer kari aapde ema aapde callback function lakhvanu ane e callback function ma parameter tarike data aavse je UserContext no data hase  */}
+        <UserContext.Consumer>
+          {(data)=><h1>LoggedInuser is :- {data.loggedInuser}</h1>}
+        </UserContext.Consumer>
 
 
       </div>

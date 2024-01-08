@@ -271,3 +271,14 @@ data layer ma state,props ,local variable aavo badho data hoy jyare UI layer ma 
 UI layer is powered by data layer.
 
 ->In React, Controlled components refer to the components where the state and behaviors are controlled by Parent components while Uncontrolled components are the ones having control of their own state and manage the behaviors on themselves
+
+->Lifting state Up ek advance topic che ema kai khas khabar nai padi ene react na official website par jai ne vanchvanu.
+
+->Props Drilling:- React ma aapde parent thi child data mokli sakie chie means data flow is unidirectional 
+assume karo ke ek component A che ane A nu child component B che ane B nu child component C che have A ne koi data sidho C ne mokalvo che to e possible nathi A che te pehla B ne mokalse pachi B che te C ne mokalse have aama B to data ne use karto j nathi e to khali as a intermediate tarike act kare che to aa problem ne props drilling kehvay 
+props drilling nu solution React Context API che 
+aapde context ma only e data j muksu je aapde multiple jagya e use karvana hoy ej 
+context na example mate utils ni andar UserContext.js file ne dhyan ma lo ane ane te data no use aapde Header.js ma karyo che tene pan dhyan ma lo
+class based component ma Context no use kai rite karvo tena mate Userclass.js page ne dhyan ma lo
+foodapp.js ne pan dhyan ma lo context na concept mate
+aapde body ma ek textbox mukie chie ane evu karva magie chie ke user je textbox ma lakhe te ene header ma context na data tarike dekhay to ena mate body.js ane foodapp.js ne dhyan ma lo

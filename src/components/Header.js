@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useOnlinestatus from "../utils/useOnlinestatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const[buttonname,setButtonname]=useState("Login");
+  //have aa data ma UserContext no data aavi jase means te ek object che te aama aavi jase 
+  const data=useContext(UserContext);
+  console.log(data);
+  // output console.log(data) nu {loggedInuser:"default user"} aavu aavse ene aapde destructuring pan kari sakie like niche mujab
+  const {loggedInuser}=data;
   const status=useOnlinestatus();
     return (
       <div className="flex justify-between bg-pink-100 shadow-lg">
@@ -25,6 +31,8 @@ const Header = () => {
               if(buttonname==="Logout"){setButtonname("Login");}
              else{ setButtonname("Logout");}
             }}>{buttonname}</button>
+            {/* ane aa niche batavya mujab aapde context na data ne use kari sakie chie */}
+            <li>{loggedInuser}</li>
           </ul>
         </div>
       </div>

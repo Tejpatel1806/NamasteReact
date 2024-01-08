@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,12 +7,25 @@ import About from "./components/About";
 import Contactus from "./components/Contactus";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
+
 const AppLayout = () => {
+  const [username,setUsername]=useState("Tej Patel");
   return (
-    <div className="app">
+    // have aapde UserContext ne import karyu uper ane .Provider aapyu matlab eni vachche je component aave che te badha ma e loggedInuser ni value Tej Patel lese
+    // <UserContext.Provider value={{loggedInuser:"Tej Patel"}}>
+    //   <Header></Header>
+    // </UserContext.Provider>
+    //   <Outlet></Outlet>
+    // jo aam uper batavyu em karyu eno matlab evo thay ke e have khali Header component ma j value Tej Patel lese baki badhe te je aapde default value aapi che loggedInuserni e lese aapde UserContext.js ma default value default user aapi che etle header sivay badhe default user dekhase
+//UserContext.Provider ma value em lakhva thi te juni value ne override kari dese ane eni niche means ena thi jetla wrap thaya hase e badha ma e override value batadse baki na ma e juni means default value j batadse je pela hase e 
+    <UserContext.Provider value={{loggedInuser:username,setUsername}}>
+        <div className="app">
       <Header></Header>
       <Outlet></Outlet>
     </div>
+    </UserContext.Provider>
+    
   );
 };
 
