@@ -1,16 +1,21 @@
-import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
-const ItemList = ({ items }) => {
-  // console.log(items);
-  const dispatch = useDispatch();
-  const handleclick = (item) => {
-    //addItem ma je moklyu che e action.payload che have aapn ne em thay ke jya cartSlice ma aapde addItem nu reducer lakhyu che tya state pela lakhyu che ane ahi aapde action pela moklie chie to te redux automatic kari lese e aane action tarike j lese ane aapde tya action.payload thi teno use kari saksu
-    dispatch(addItem(item));
-  };
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
+
+const Cart = () => {
+  const cartitem = useSelector((store) => store.cart.items);
+  const dispatch=useDispatch();
+  const handleclearcart=()=>{
+    dispatch(clearCart());
+  }
   return (
     <>
+      <div className="text-center m-4 p-4">
+        <h1 className="text-2xl font-bold">Cart</h1>
+        <button className="p-2 m-2 text-white bg-black rounded-lg" onClick={handleclearcart}>Clear Cart</button>
+        {cartitem.length===0 && (<h1>Nothing in cart!!Please ad some items in cart </h1>)}
+      </div>
       <div>
-        {items.map((item) => {
+        {cartitem.map((item) => {
           return (
             <div
               key={item.card.info.id}
@@ -28,17 +33,7 @@ const ItemList = ({ items }) => {
                 </div>
                 <p className="text-xs">{item.card.info.description}</p>
               </div>
-              <div className="w-3/12 p-4">
-                <div className="absolute">
-                  <button
-                    className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
-                    onClick={() => 
-                      handleclick(item)
-                    }
-                  >
-                    Add+
-                  </button>
-                </div>
+              <div className="w-1/12 ">
                 <img
                   src={
                     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/" +
@@ -53,4 +48,4 @@ const ItemList = ({ items }) => {
     </>
   );
 };
-export default ItemList;
+export default Cart;

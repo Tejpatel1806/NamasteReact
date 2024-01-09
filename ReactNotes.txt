@@ -282,3 +282,21 @@ context na example mate utils ni andar UserContext.js file ne dhyan ma lo ane an
 class based component ma Context no use kai rite karvo tena mate Userclass.js page ne dhyan ma lo
 foodapp.js ne pan dhyan ma lo context na concept mate
 aapde body ma ek textbox mukie chie ane evu karva magie chie ke user je textbox ma lakhe te ene header ma context na data tarike dekhay to ena mate body.js ane foodapp.js ne dhyan ma lo
+
+->REDUX Toolkit:- 
+redux ane context api banne same kam j kare che but application bau moti hoy to j aapde redux use karsu.baki context ma j data store karavsu.
+redux and react are different library.
+redux offering easily debugging.
+1>diagram book ma dorelo che teh dhyan ma lo have aapde jeva ADD+ button par click karie ke tarat j item che te cartslice ma jati rehvi joie aapde tevu banavu che to aapde jevu button par click karie ke tarat j ek action dispatch karavsu pachi te action che te  function ne call karse ane e function che te aapda cartslice ni andar item muki sakse aapde sidhu cartslice ma kai change na kari sakie
+jevu aapde add+ button par click karie ke tarat j teh action dispatch karse ane e action che te function ne call karse ane e function have cart slice ma update kari sakse 
+action dispatch je function ne call kare che tene aapde reducer function kahisu.
+have aa to thayu ke aapde slice ma data write karvo hoy to 
+2>slice ma thi data read kari ne mycart ma mukvo hoy to:- have aapde cart slice ma thi data lai ne mycart ma mukvo che to cart slice ma thi e selector ne call karse ane pachi selector che te data ne mycart ma muki dese
+have mycart e selector through cart slice ne subscribe karyu kehvay etle cart slice ma jevu kai change thase ke tarat j teh mycart ma reflect thava lagse
+3>jevu aapde add+ button par click karyu ke tarat j teh action dispatch karse have te action dispatch che te function(reducer function) ne call karse have e reducer function che te cartslice ma update kari sakse have mycart e cartslice ne subscribe karyu che (selector through) eno matlab jevu cartslice ma kai change thase ke tart j teh mycart ma reflect thase means mycart ma pan changes thase update thase
+
+NOTE:- aapde cartSlice ma reducers lakhyu che jyare appStore ma khali reducer lakhyu che eno matlab evo thay ke reducers ni andar multiple action dispatch ane emna reducer function hase jyare reducer che te collection of reducers means appStore ma aapde as a reducer ma cart reducers ne mukyu che 
+vanila(older) redux ma evu hatu ke means aapde state ne change nata kari sakta ane return karvu farjiyat hatu ema state ni copy banavani ane je change karva hoy te copyvada ma karvana ane e copyvada ne return karvanu jyare redux toolkit ma aapde state ne change kari sakie chie ane return pan farjiyat nathi hotu
+redux toolkit che te behind the scene immer par kam kare che
+
+redux toolkit evu ke che ka to tame state ne change karo ka return karo ane aapde je return karsu te state thi replace thai jase means return value che te state ma jati rehse 

@@ -6,11 +6,14 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contactus from "./components/Contactus";
 import Error from "./components/Error";
+import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
-  const [username,setUsername]=useState("Tej Patel");
+  const [username, setUsername] = useState("Tej Patel");
   return (
     // have aapde UserContext ne import karyu uper ane .Provider aapyu matlab eni vachche je component aave che te badha ma e loggedInuser ni value Tej Patel lese
     // <UserContext.Provider value={{loggedInuser:"Tej Patel"}}>
@@ -18,14 +21,17 @@ const AppLayout = () => {
     // </UserContext.Provider>
     //   <Outlet></Outlet>
     // jo aam uper batavyu em karyu eno matlab evo thay ke e have khali Header component ma j value Tej Patel lese baki badhe te je aapde default value aapi che loggedInuserni e lese aapde UserContext.js ma default value default user aapi che etle header sivay badhe default user dekhase
-//UserContext.Provider ma value em lakhva thi te juni value ne override kari dese ane eni niche means ena thi jetla wrap thaya hase e badha ma e override value batadse baki na ma e juni means default value j batadse je pela hase e 
-    <UserContext.Provider value={{loggedInuser:username,setUsername}}>
+    //UserContext.Provider ma value em lakhva thi te juni value ne override kari dese ane eni niche means ena thi jetla wrap thaya hase e badha ma e override value batadse baki na ma e juni means default value j batadse je pela hase e
+
+    //aa rite aapde store che te aapvano aapdi app ne jene provider store={} e wrap karyu che e badha component che te aapda appStore ne use kari sakse 
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInuser: username, setUsername }}>
         <div className="app">
-      <Header></Header>
-      <Outlet></Outlet>
-    </div>
-    </UserContext.Provider>
-    
+          <Header></Header>
+          <Outlet></Outlet>
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -51,7 +57,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element:<RestaurantMenu></RestaurantMenu>,
+        element: <RestaurantMenu></RestaurantMenu>,
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
       },
     ],
     errorElement: <Error></Error>,
